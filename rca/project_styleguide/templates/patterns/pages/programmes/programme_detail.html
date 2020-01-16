@@ -11,7 +11,7 @@
     {% include "patterns/molecules/hero/hero.html" with modifier="programme" %}
 
     <div class="page page--overlap" typeof="schema:Course">
-        
+
         <meta property="schema:provider" content="Royal College of Art" />
 
         <div class="page__notch grid">
@@ -26,9 +26,17 @@
                     </nav>
                     {% if page.title %}
                         <h1 property="schema:name" class="title-area__header heading heading--display-two">{{ page.title }}</h1>
-                    {% endif %} 
+                    {% endif %}
                     {% if page.degree_level %}
                         <p class="title-area__introduction introduction">{{ page.degree_level }}</p>
+                    {% endif %}
+                </div>
+                <div class="hero__image__credit">
+                    {% if page.hero_image_credit %}
+                        {{ page.hero_image_credit }}
+                    {% else %}
+                        <i>{{ page.hero_image.title }}</i>{% if page.hero_image.creator %}, {{ page.hero_image.creator }}{% endif %}
+                        {% if page.hero_image.photographer %}, Photo: {{ page.hero_image.photographer }}{% endif %}
                     {% endif %}
                 </div>
             </div>
